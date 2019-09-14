@@ -1,6 +1,20 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
+import {
+  ADD_SMURF_START,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_FAIL,
+  GET_SMURFS_START,
+  GET_SMURFS_SUCCESS,
+  GET_SMURFS_FAIL,
+  UPDATE_SMURF_START,
+  UPDATE_SMURF_SUCCESS,
+  UPDATE_SMURF_FAIL,
+  DELETE_SMURF_START,
+  DELETE_SMURF_SUCCESS,
+  DELETE_SMURF_FAIL
+} from "../actions";
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
