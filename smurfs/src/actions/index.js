@@ -26,10 +26,11 @@ export const DELETE_SMURF_FAIL = "DELETE_SMURF_FAIL";
 
 export const addSmurf = (smurf) => dispatch => {
   dispatch({ type: ADD_SMURF_START });
+  console.log("!!!", smurf)
   axios
-    .post("localhost:3333/smurfs", smurf)
+    .post("http://localhost:3333/smurfs", smurf)
     .then(res =>
-      dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data.results })
+      dispatch({ type: ADD_SMURF_SUCCESS, payload: smurf })
     )
     .catch(err => dispatch({ type: ADD_SMURF_FAIL, payload: err }));
 };

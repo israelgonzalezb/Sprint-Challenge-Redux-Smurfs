@@ -36,6 +36,26 @@ const initialState = {
 function reducer(state = initialState, action) {
   console.log('reducer', action);
   switch (action.type) {
+    
+    case ADD_SMURF_START:
+      return {
+        ...state,
+        addingSmurf: true,
+        error: ''
+      };
+    case ADD_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+        addingSmurf: false,
+        error: ''
+      };
+    case ADD_SMURF_FAIL:
+      return {
+        ...state,
+        addingSmurf: false,
+        error: action.payload
+      };   
     case GET_SMURFS_START:
       return {
         ...state,
@@ -52,6 +72,7 @@ function reducer(state = initialState, action) {
     case GET_SMURFS_FAIL:
       return {
         ...state,
+        fetchingSmurfs: false,
         error: action.payload
       };
     default:
