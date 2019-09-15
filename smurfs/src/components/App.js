@@ -12,33 +12,29 @@ import { addSmurf, getSmurfs } from "../actions";
 const mapStateToProps = state => { return { smurfs: state.smurfs } };
 
  class SmurfsList extends Component {
-   
+   state = {
+     smurfName: "",
+     smurfAge: "",
+     smurfHeight: "" 
+   }
    render(){
     this.props.getSmurfs();
      return (
        <div className="SmurfsList">
         <ul>
-          {this.props.smurfs.map(smurf => (<li>{smurf.name}</li>))}
-        </ul>
+          {this.props.smurfs.map(smurf => (<ul>Name: {smurf.name}<li>Age: {smurf.age}</li><li>Height: {smurf.height}</li></ul>))}
+        </ul>< br />
+        <form>
+          <input onChange={this.handleChanges} placeholder="Name" value={this.state.smurfName} /><br />
+          <input onChange={this.handleChanges} placeholder="Age" value={this.state.smurfAge} /><br />
+          <input onChange={this.handleChanges} placeholder="Height" value={this.state.smurfHeight} /><br />
+          <button onClick={this.addSmurf}>Add Smurf</button>
+        </form>
        </div>
      );
    }
  }
-/*
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <SmurfsList />
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
-}
-*/
 
-export default connect(mapStateToProps, { getSmurfs })(SmurfsList);
+
+export const ConnectedSmurfsList = connect(mapStateToProps, { getSmurfs })(SmurfsList);
 //export default App;
