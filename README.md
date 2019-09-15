@@ -23,8 +23,20 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  - In Redux, all of the applications's state is held in the `store`. This is where everything that happens and changes is kept, and in Redux, changes over time so that we can see what it looked like in the past before new changes are made. This is why the store is immutable, so that we can perform time-travel debugging.
+  
+  - In Redux, `actions` are basically small slices of state that are returned by `action creators`. This is how we change state. We pass actions to the store through our `reducers`.
+
+  - `Reducers` take actions and combine them with the previous state. They then send the new copy of state to the store, which replaces the state with the new copy.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  - Application state is global and can be accessed by any part of the application. This is good for data that would be shared across components, for example, the information of a currently logged-in user. Component state is local to a component. This is good for things that only that component needs to know, for example, whether an icon should currently be animated or not according to an action that the user takes. Component state can only be accessed by that parent component and its children.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  - Without `redux-thunk`, action creators will usually return actions, which are JS objects. With redux-thunk, we can have our action-creators return functions on different conditions. This allows us to perform asynchronous functions, and only return once that operation has concluded.
 
 ## Project Set Up
 
