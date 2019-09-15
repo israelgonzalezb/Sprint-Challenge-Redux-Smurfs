@@ -32,3 +32,31 @@ const initialState = {
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
+
+function reducer(state = initialState, action) {
+  console.log('reducer', action);
+  switch (action.type) {
+    case GET_SMURFS_START:
+      return {
+        ...state,
+        fetchingSmurfs: true,
+        error: ''
+      };
+    case GET_SMURFS_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
+        error: ''
+      };
+    case GET_SMURFS_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+    default:
+      return state;
+  }
+}
+
+export default reducer;
