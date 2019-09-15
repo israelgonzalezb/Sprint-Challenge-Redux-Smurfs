@@ -43,6 +43,7 @@ const mapStateToProps = state => { return { smurfs: state.smurfs } };
     //this.props.getSmurfs();
      return (
        <div className="SmurfsList">
+       <h1>Smurf API</h1><br /><br />
         <ul>
           {this.props.smurfs.map(smurf => (<div><ul>Name: {smurf.name}<li>Age: {smurf.age}</li><li>Height: {smurf.height}</li></ul><br /></div>))}
         </ul>< br /><br />
