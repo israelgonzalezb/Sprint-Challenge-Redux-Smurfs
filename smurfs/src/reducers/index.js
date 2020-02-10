@@ -1,5 +1,6 @@
 // EXPERIMENT: Using objects for action types to reduce imports in this file
-import { ADD_SMURF, GET_SMURF, DELETE_SMURF, GET_SMURFS } from "./actions";
+// RESULT: 
+import { ADD_SMURF, UPDATE_SMURF, DELETE_SMURF, GET_SMURFS } from "../actions";
 
 const initialState = {
   smurfs: [],
@@ -10,47 +11,39 @@ const initialState = {
   error: null
 };
 
-/*
-  You'll only need one smurf reducer for this project.
-  Feel free to export it as a default and import as rootReducer. 
-  This will guard your namespacing issues.
-  There is no need for 'combineReducers' in this project.
-  Components can then read your store as, `state` and not `state.fooReducer`.
-*/
-
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   // EXPERIMENT: Using short circuit to check if state is undefined...
   // if this doesn't work try ternary or if statement
   // RESULT: it doesn't work... returns are not expressions, they're statements, they don't produce a value
   if (typeof state === "undefined") return initialState;
   switch (action.type) {
     case ADD_SMURF.START:
-      return state;
+      return Object.assign({},state,{ addingSmurf: true, error: null })
     case ADD_SMURF.SUCCESS:
-      return state;
+      return Object.assign({},state, { addingSmurf: false, error: null });
     case ADD_SMURF.FAILURE:
-      return state;
+      return Object.assign({},state,{ addingSmurf: false, error: action.payload })
 
     case DELETE_SMURF.START:
-      return state;
+      return Object.assign({},state,{ deletingSmurf: true, error: null })
     case DELETE_SMURF.SUCCESS:
-      return state;
+      return Object.assign({},state,{ deletingSmurf: false, error: null })
     case DELETE_SMURF.FAILURE:
-      return state;
+      return Object.assign({},state,{ deletingSmurf: false, error: action.payload })
 
     case UPDATE_SMURF.START:
-      return state;
+      return Object.assign({},state,{ updatingSmurf: true, error: null })
     case UPDATE_SMURF.SUCCESS:
-      return state;
+      return Object.assign({},state,{ updatingSmurf: false, error: null })
     case UPDATE_SMURF.FAILURE:
-      return state;
+      return Object.assign({},state,{ updatingSmurf: false, error: action.payload })
 
     case GET_SMURFS.START:
-      return state;
+      return Object.assign({},state,{ gettingSmurfs: true, error: null })
     case GET_SMURFS.SUCCESS:
-      return state;
+      return Object.assign({},state,{ gettingSmurfs: false, error: null })
     case GET_SMURFS.FAILURE:
-      return state;
+      return Object.assign({},state,{ gettingSmurfs: false, error: action.payload })
 
     default:
       return state;

@@ -52,17 +52,17 @@ export const GET_SMURFS_FAILURE = "GET_SMURFS_FAILURE"
 */
 
 export const addSmurf = () => {
-  return { type: ADD_SMURF_START }
+  return { type: ADD_SMURF.START }
 }
 
 export const deleteSmurf = () => {
-  return { type: DELETE_SMURF_START }
+  return { type: DELETE_SMURF.START }
 }
 
 export const updateSmurf = () => {
-  return { type: UPDATE_SMURF_START }
+  return { type: UPDATE_SMURF.START }
 }
 
 export const getSmurfs = () => {
-  return { type: GET_SMURFS_START }
+  return { type: GET_SMURFS.START }
 }
