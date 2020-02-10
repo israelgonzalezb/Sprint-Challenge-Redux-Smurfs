@@ -1,16 +1,22 @@
-export const ADD_SMURF_FETCHING = "ADD_SMURF_START"
+export const ADD_SMURF = {
+  START: "ADD_SMURF_START",
+  SUCCESS: "ADD_SMURF_SUCCESS",
+  FAILURE: "ADD_SMURF_FAILURE"
+}
+
+export const ADD_SMURF_START = "ADD_SMURF_START"
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS"
 export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE"
 
-export const DELETE_SMURF_FETCHING = "DELETE_SMURF_START"
+export const DELETE_SMURF_START = "DELETE_SMURF_START"
 export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS"
 export const DELETE_SMURF_FAILURE = "DELETE_SMURF_FAILURE"
 
-export const UPDATE_SMURF_FETCHING = "UPDATE_SMURF_START"
+export const UPDATE_SMURF_START = "UPDATE_SMURF_START"
 export const UPDATE_SMURF_SUCCESS = "UPDATE_SMURF_SUCCESS"
 export const UPDATE_SMURF_FAILURE = "UPDATE_SMURF_FAILURE"
 
-export const GET_SMURFS_FETCHING = "GET_SMURFS_START"
+export const GET_SMURFS_START = "GET_SMURFS_START"
 export const GET_SMURFS_SUCCESS = "GET_SMURFS_SUCCESS"
 export const GET_SMURFS_FAILURE = "GET_SMURFS_FAILURE"
 
@@ -24,3 +30,19 @@ export const GET_SMURFS_FAILURE = "GET_SMURFS_FAILURE"
    U - updateSmurf
    D - deleteSmurf
 */
+
+export const addSmurf = () => {
+  return { type: ADD_SMURF_START }
+}
+
+export const deleteSmurf = () => {
+  return { type: DELETE_SMURF_START }
+}
+
+export const updateSmurf = () => {
+  return { type: UPDATE_SMURF_START }
+}
+
+export const getSmurfs = () => {
+  return { type: GET_SMURFS_START }
+}
