@@ -41,7 +41,7 @@ export const reducer = (state = initialState, action) => {
     case GET_SMURFS.START:
       return Object.assign({},state,{ gettingSmurfs: true, error: null })
     case GET_SMURFS.SUCCESS:
-      return Object.assign({},state,{ gettingSmurfs: false, error: null })
+      return Object.assign({},state,{ gettingSmurfs: false, error: null, smurfs: action.payload })
     case GET_SMURFS.FAILURE:
       return Object.assign({},state,{ gettingSmurfs: false, error: action.payload })
 
