@@ -15,11 +15,11 @@ const SmurfForm = props => {
     console.log(newSmurf);
   };
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
     console.log("Sending this to addSmurf", newSmurf);
-    props.addSmurf(newSmurf);
-    props.getSmurfs();
+    await props.addSmurf(newSmurf);
+    await props.getSmurfs();
     setNewSmurf(initialSmurf);
   };
 

@@ -25,7 +25,8 @@ const SmurfList = (props) => {
     )
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
+    console.log("MAPSTATETOPROPS IN SMURFLIST. STATE IS", state)
     const smurfs = state.smurfs;
     return { smurfs }
 }

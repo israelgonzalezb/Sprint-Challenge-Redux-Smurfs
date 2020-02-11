@@ -73,14 +73,14 @@ export const updateSmurf = () => {
 
 export const getSmurfs = () => dispatch => {
   dispatch({ type: GET_SMURFS.START });
-  return axios
+  axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
       console.log("RES", res);
-      dispatch({ type: GET_SMURFS.SUCCESS, payload: res.data });
+      return dispatch({ type: GET_SMURFS.SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log("ERR", err.response);
-      dispatch({ type: GET_SMURFS.FAILURE, payload: err.response });
+      return dispatch({ type: GET_SMURFS.FAILURE, payload: err.response });
     });
 };
