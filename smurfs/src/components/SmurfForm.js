@@ -15,7 +15,7 @@ const SmurfForm = props => {
     console.log(newSmurf);
   };
 
-  const submitHandler = async e => {
+  const submitHandler = async e => { // !!! This had to be made async so that the other connected component would get the expected new state, instead of previous state
     e.preventDefault();
     console.log("Sending this to addSmurf", newSmurf);
     await props.addSmurf(newSmurf);
